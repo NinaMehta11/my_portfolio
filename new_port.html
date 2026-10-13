@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nandani Mehta — Graphic Designer & Video Editor</title>
+  <style>
+    :root {
+      --bg: #fbf6f3;
+      --surface: #ffffff;
+      --text: #2a2236;
+      --muted: #6f6680;
+      --line: #eadfe0;
+      --accent: #f0506e;
+      --accent2: #7c4dff;
+      --soft: #f3e9ff;
+      box-sizing: border-box;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px)
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px
+    }
+
+    header {
+      position: sticky;
+      top: env(safe-area-inset-top, 0px);
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(251, 246, 243, .85);
+      border-bottom: 1px solid var(--line)
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -.02em;
+      font-size: 1.15rem
+    }
+
+    .logo span {
+      color: var(--accent)
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: .95rem;
+      color: var(--muted)
+    }
+
+    nav ul a:hover {
+      color: var(--accent)
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .95rem;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      transition: .2s
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      color: #fff;
+      border-color: transparent
+    }
+
+    .btn:hover {
+      transform: translateY(-2px)
+    }
+
+    .hero {
+      padding: 88px 0 64px;
+      position: relative
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: .8rem;
+      color: var(--muted);
+      background: var(--surface)
+    }
+
+    .tag i {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-right: 8px
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.04;
+      letter-spacing: -.04em;
+      margin: 24px 0;
+      font-weight: 800;
+      max-width: 15ch
+    }
+
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .lead {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.1rem
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px
+    }
+
+    .stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 52px;
+      flex-wrap: wrap
+    }
+
+    .stats b {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: -.03em
+    }
+
+    .stats span {
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    section {
+      padding: 68px 0
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -.03em;
+      margin: 0;
+      line-height: 1.1
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .filters button {
+      font: inherit;
+      font-size: .9rem;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .filters button.on {
+      background: var(--accent2);
+      color: #fff;
+      border-color: var(--accent2)
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: .25s
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -22px rgba(124, 77, 255, .45)
+    }
+
+    .thumb {
+      aspect-ratio: 16/10;
+      position: relative;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -.02em;
+      text-align: center;
+      padding: 16px
+    }
+
+    .play {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .25);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, .6);
+      display: grid;
+      place-items: center;
+      transition: .2s
+    }
+
+    .card:hover .play {
+      transform: scale(1.12);
+      background: rgba(255, 255, 255, .4)
+    }
+
+    .play::after {
+      content: "";
+      border-left: 16px solid #fff;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      margin-left: 5px
+    }
+
+    .badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .28);
+      backdrop-filter: blur(6px)
+    }
+
+    .info {
+      padding: 18px 20px
+    }
+
+    .info h3 {
+      margin: 0 0 2px;
+      font-size: 1.05rem
+    }
+
+    .info p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    .g1 {
+      background: linear-gradient(135deg, #f0506e, #ff9a5c)
+    }
+
+    .g2 {
+      background: linear-gradient(135deg, #7c4dff, #4f9dff)
+    }
+
+    .g3 {
+      background: linear-gradient(135deg, #ec4899, #f59e0b)
+    }
+
+    .g4 {
+      background: linear-gradient(135deg, #14b8a6, #6366f1)
+    }
+
+    .g5 {
+      background: linear-gradient(135deg, #a855f7, #f0506e)
+    }
+
+    .g6 {
+      background: linear-gradient(135deg, #f97316, #ec4899)
+    }
+
+    .hide {
+      display: none
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 56px;
+      align-items: center
+    }
+
+    .about p {
+      color: var(--muted)
+    }
+
+    .skills {
+      margin-top: 20px;
+      display: grid;
+      gap: 12px
+    }
+
+    .skills div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center
+    }
+
+    .skills small {
+      width: 84px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .05em
+    }
+
+    .skills span {
+      padding: 6px 14px;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      font-size: .88rem
+    }
+
+    .portrait {
+      aspect-ratio: 1;
+      border-radius: 28px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 5rem;
+      font-weight: 800
+    }
+
+    .tl {
+      position: relative;
+      border-left: 2px solid var(--line);
+      margin-left: 8px;
+      padding-left: 32px;
+      display: grid;
+      gap: 32px
+    }
+
+    .tl .item {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px
+    }
+
+    .tl .item::before {
+      content: "";
+      position: absolute;
+      left: -42px;
+      top: 32px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 4px solid var(--bg)
+    }
+
+    .item .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 1.2rem
+    }
+
+    .item .co {
+      color: var(--accent2);
+      font-weight: 600
+    }
+
+    .item .date {
+      color: var(--muted);
+      font-size: .88rem;
+      background: var(--soft);
+      padding: 4px 12px;
+      border-radius: 999px;
+      height: fit-content
+    }
+
+    .item ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted)
+    }
+
+    .item li {
+      margin: 6px 0
+    }
+
+    .award {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #fff1d6;
+      color: #8a5a00;
+      font-weight: 600;
+      font-size: .85rem
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px
+    }
+
+    .box2 {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px
+    }
+
+    .box2 h3 {
+      margin: 0 0 4px
+    }
+
+    .box2 p {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    .box2 .k {
+      font-size: .8rem;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 8px
+    }
+
+    .contact {
+      text-align: center;
+      background: linear-gradient(135deg, var(--soft), #ffe8ee);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 72px 24px
+    }
+
+    .contact h2 {
+      max-width: 16ch;
+      margin: 0 auto 16px
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin: 0 0 28px
+    }
+
+    .social {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: .95rem;
+      flex-wrap: wrap
+    }
+
+    .social a:hover {
+      color: var(--accent)
+    }
+
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(70, 40, 120, .55);
+      backdrop-filter: blur(6px);
+      display: none;
+      place-items: center;
+      z-index: 50;
+      padding: 24px
+    }
+
+    .modal.open {
+      display: grid
+    }
+
+    .box {
+      width: min(900px, 100%);
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative
+    }
+
+    .box video,
+    .box .ph {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      background: var(--soft)
+    }
+
+    .ph {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      padding: 24px;
+      font-size: .95rem
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 2
+    }
+
+    .car {
+      position: relative;
+      height: min(78vh, 620px);
+      background: var(--surface)
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--muted);
+      background: linear-gradient(135deg, var(--soft), #ffe8ee);
+      padding: 24px
+    }
+
+    .slide img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--surface)
+    }
+
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .92);
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 2
+    }
+
+    .nav.prev {
+      left: 12px
+    }
+
+    .nav.next {
+      right: 12px
+    }
+
+    .cap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-top: 1px solid var(--line);
+      font-size: .9rem
+    }
+
+    .cap b {
+      font-size: 1rem
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px
+    }
+
+    .dots i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--line);
+      cursor: pointer
+    }
+
+    .dots i.on {
+      background: var(--accent);
+      width: 22px;
+      border-radius: 99px
+    }
+
+    .vlink {
+      display: block;
+      padding: 12px 20px;
+      font-size: .88rem;
+      color: var(--accent2)
+    }
+
+    @media(max-width:760px) {
+      nav ul {
+        display: none
+      }
+
+      .about,
+      .two {
+        grid-template-columns: 1fr
+      }
+
+      .hero {
+        padding-top: 52px
+      }
+
+      .stats {
+        gap: 32px
+      }
+
+      .portrait {
+        max-width: 240px
+      }
+    }
+
+    .vlist {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 14px 20px;
+      border-top: 1px solid var(--line)
+    }
+
+    .vitem {
+      font: inherit;
+      font-size: .88rem;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer
+    }
+
+    .vitem.on {
+      background: var(--accent2);
+      color: #fff;
+      border-color: var(--accent2)
+    }
+  </style>
+
+
+<style>
+  .thumb-img1 {
+    background-size: cover;
+    background-position: center;
+    background-image: url("assets/college_motion/college motion graphic/gxg.jpg");
+}
+.thumb-sukuti{
+ background-size: cover;
+   background-position: center;
+   background-image: url("assets/sukuti_ghar/sukuti ghar/khana.jpg");
+}
+.thumb-vault{
+  background-size: cover;
+   background-position: center;
+   background-image: url("assets/vault_images/vault/catq.jpg");
+}
+.thumb-vault2{
+  background-size: cover;
+   background-position: center;
+   background-image: url("assets/vault_images/vault/vpff.jpg");
+  
+}
+.thumb-ride{
+  background-size: cover;
+   background-position: center;
+   background-image: url("assets/rideon/rideon/jeck.jpg");
+  
+}
+.thumb-ride2{
+  background-size: cover;
+   background-position: center;
+   background-image: url("assets/rideon/img3.jpeg");
+  
+}
+.thumb-vault2{
+  background-size: cover;
+   background-position: center;
+   background-image: url("assets/vault_images/vault/vpff.jpg");
+  
+}
+.yt_thumb{
+  background-size: cover;
+   background-position: center;
+   background-image: url("assets/yt.jpeg");
+}
+</style>
+</head>
+
+<body>
+
+  <header>
+    <nav class="wrap">
+      <a href="#" class="logo">nandani<span>.</span>mehta</a>
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn primary">Hire me</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <span class="tag"><i></i>Available for new projects · Kathmandu</span>
+      <h1>Graphic design &amp; video that tells your <em>story</em>.</h1>
+      <p class="lead">I'm Nandani, a creative graphic designer and video editor crafting branding, social media
+        campaigns, YouTube edits, motion graphics and print materials for brands and clients.</p>
+      <div class="cta">
+        <a href="https://drive.google.com/drive/folders/1QGo92h9-O-CpRtkwTs7ZNTciVTwFxE0u" class="btn primary">View my work →</a>
+        <a href="#contact" class="btn">Get in touch</a>
+      </div>
+      <div class="stats">
+        <div><b>3</b><span>Brand projects</span></div>
+        <div><b>2026</b><span>Employee of the Month</span></div>
+        <div><b>4</b><span>Pro design tools</span></div>
+      </div>
+    </div>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="head">
+          <h2>Selected work</h2>
+          <div class="filters">
+            <button class="on" data-f="all">All</button>
+            <button data-f="design">Graphic Design</button>
+            <button data-f="video">Video &amp; Motion</button>
+          </div>
+        </div>
+
+        <!-- IMAGES: edit data-images="a.jpg,b.jpg,..." on a design card. VIDEOS: set data-video="videos/file.mp4" (or a YouTube/Vimeo link). -->
+        <div class="grid">
+          <article class="card" data-c="design"
+            data-images="assets/sukuti_ghar/sukuti ghar/menu1.jpg,assets/sukuti_ghar/sukuti ghar/menu_n2.jpg,assets/sukuti_ghar/sukuti ghar/menu4.jpg,assets/sukuti_ghar/sukuti ghar/menu5.jpg,assets/sukuti_ghar/sukuti ghar/khana.jpg,assets/sukuti_ghar/sukuti ghar/banneru.jpg">
+            <div class="thumb thumb-sukuti"><span class="badge">Branding &amp; Print</span>Sukuti Ghar</div>
+            <div class="info">
+              <h3>Sukuti Ghar — Restaurant Branding</h3>
+              <p>Menu design, standee &amp; banner for an Australian restaurant, aligned with its branding.</p>
+            </div>
+          </article>
+          <article class="card" data-c="design"
+            data-images="assets/vault_images/vault/catq.jpg,assets/vault_images/vault/retinol-Recovered.jpg,assets/vault_images/vault/vlta.jpg,assets/vault_images/vault/vltx.png,assets/vault_images/vault/vpff.jpg">
+            <div class="thumb thumb-vault"><span class="badge">Social Media</span>Vault Skin Co.</div>
+            <div class="info">
+              <h3>Vault Skin Co. — Social Posts</h3>
+              <p>Daily social media posts and promotional creatives for a cosmetic brand.</p>
+            </div>
+          </article>
+          <!-- <article class="card" data-c="video" data-videos="videos/promo-1.mp4,videos/promo-2.mp4,videos/promo-3.mp4"></article> -->
+          <article class="card" data-c="video"
+            data-videos="assets/vault_images/vault/bg_1.mp4,assets/vault_images/vault/IMG_2784.mp4 ">
+            <div class="thumb thumb-vault2"><span class="badge">Motion Design</span>
+              <div class="play"></div>
+            </div>
+            <div class="info">
+              <h3>Vault Skin Co. — Promo Videos</h3>
+              <p>Promotional videos, motion graphics and product-focused content.</p>
+            </div>
+          </article>
+          <article class="card" data-c="design"
+            data-images="assets/rideon/rideon/gce6.jpg,assets/rideon/rideon/jeck.jpg,assets/rideon/rideon/sticker.png,assets/rideon/img1.jpeg,assets/rideon/img2.jpeg,assets/rideon/img3.jpeg">
+            <div class="thumb thumb-ride"><span class="badge">Social &amp; Promo</span>RideOn Nepal</div>
+            <div class="info">
+              <h3>RideOn Nepal — Promo Design</h3>
+              <p>Social posts, sticker and promotional creatives for a scooter rental platform.</p>
+            </div>
+          </article>
+
+          <article class="card" data-c="video"
+            data-videos="assets/rideon/rideon/bg.mp4,assets/rideon/rideon/video2.mp4">
+            <div class="thumb thumb-ride2"><span class="badge">Motion Design</span>
+              <div class="play"></div>
+            </div>
+            <div class="info">
+              <h3>RideOn Nepal — Promo Video</h3>
+              <p>Motion graphics and promotional video content for digital marketing.</p>
+            </div>
+          </article>
+
+          <article class="card" data-c=""
+            data-videos="">
+            <div class="thumb yt_thumb"><span class="badge">YouTube</span>
+              
+                <a href="https://drive.google.com/drive/folders/18rOzZ0z-sg5GhpEAWy3IX6TGZtX7cI0w"><div class="play"></div></a>
+              </div>
+            <div class="info">
+              <h3>YouTube &amp; Short-form Edits</h3>
+              <p>Edited YouTube videos and short-form content for clients and campaigns.</p>
+            </div>
+          </article>
+
+           <article class="card" data-c="video"
+            data-videos="assets/college_motion/college motion graphic/bg_3.mp4,assets/college_motion/college motion graphic/bgz.mp4,assets/college_motion/college motion graphic/yeti.mp4">
+            <div class="thumb thumb-img1"><span class="badge">Motion</span>
+              <div class="play"></div>
+            </div>
+            <div class="info">
+              <h3>Motion Graphics</h3>
+              <p>College Posters and Videos</p>
+            </div>
+          </article>
+
+
+  
+        
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="head">
+          <h2>Experience</h2>
+        </div>
+        <div class="tl">
+          <div class="item">
+            <div class="top">
+              <div>
+                <h3>Graphic Designer</h3>
+                <div class="co">Digital Techno Wiz</div>
+              </div>
+              <span class="date">Feb 2026 – Sep 2026</span>
+            </div>
+            <ul>
+              <li>Designed graphics and visual assets for digital platforms, marketing campaigns and brand
+                communication.</li>
+              <li>Created social media posts, promotional materials and digital creatives with consistent visual
+                branding.</li>
+              <li>Edited YouTube videos, short-form videos, promotional videos and motion graphics for clients and
+                campaigns.</li>
+              <li>Developed creative concepts based on project requirements and brand guidelines.</li>
+              <li>Incorporated client feedback and revisions to deliver visuals that met expectations.</li>
+              <li>Collaborated with the team to deliver graphics, videos and marketing materials on time.</li>
+            </ul>
+            <span class="award">🏆 Employee of the Month · 2026</span>
+          </div>
+        </div>
+        <div class="two">
+          <div class="box2">
+            <div class="k">Education</div>
+            <h3>Bachelor of Engineering, Computer Engineering</h3>
+            <p>Tribhuvan University · 2021 – 2025</p>
+          </div>
+          <div class="box2">
+            <div class="k">Recognition</div>
+            <h3>Employee of the Month</h3>
+            <p>Digital Techno Wiz · 2026 — for outstanding performance, creativity and contribution to design and
+              content initiatives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about">
+        <div class="portrait">NM</div>
+        <div>
+          <h2>Hi, I'm Nandani.</h2>
+          <p style="margin-top:16px">I'm a creative graphic designer with hands-on experience in social media design,
+            branding, digital content, motion graphics and video editing. I care about visual consistency, storytelling
+            and turning client feedback into polished final designs.</p>
+          <div class="skills">
+            <div><small>Design</small><span>Branding</span><span>Social Media Design</span><span>Visual
+                Design</span><span>Marketing Creatives</span></div>
+            <div><small>Video</small><span>YouTube Editing</span><span>Promotional Videos</span><span>Motion
+                Graphics</span></div>
+            <div><small>Software</small><span>Photoshop</span><span>Illustrator</span><span>Figma</span><span>Premiere
+                Pro</span></div>
+            <div><small>Web</small><span>HTML</span><span>CSS</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <h2>Let's make something great.</h2>
+          <p>Have a project in mind? Let's talk.</p>
+          <a class="btn primary" href="mailto:mehtanandani5554@gmail.com">mehtanandani5554@gmail.com</a>
+          <div class="social">
+            <a href="tel:+9779840030389">📞 +977 9840030389</a>
+            <span>📍 Kathmandu, Nepal</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Nandani Mehta. All rights reserved.</footer>
+
+  <div class="modal" id="modal">
+    <div class="box">
+      <button class="close" id="close" aria-label="Close">×</button>
+      <div id="player"></div>
+    </div>
+  </div>
+
+  <script>
+    const cards = [...document.querySelectorAll('.card')];
+    const modal = document.getElementById('modal');
+    const player = document.getElementById('player');
+    let imgs = [], idx = 0, title = '', mode = '', vids = [], vi = 0;
+
+    const fix = u => { try { return encodeURI(decodeURI(u)); } catch (e) { return u; } };
+
+    // Filters
+    document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
+      document.querySelectorAll('.filters button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      cards.forEach(c => c.classList.toggle('hide', b.dataset.f !== 'all' && c.dataset.c !== b.dataset.f));
+    });
+
+    function closeModal() { modal.classList.remove('open'); player.innerHTML = ''; mode = ''; }
+
+    // Videos
+    function embed(u) {
+      let m = u.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
+      if (m) return 'https://www.youtube.com/embed/' + m[1] + '?autoplay=1';
+      m = u.match(/vimeo\.com\/(\d+)/);
+      return m ? 'https://player.vimeo.com/video/' + m[1] + '?autoplay=1' : null;
+    }
+    function playVid(i) {
+      vi = i;
+      const src = vids[i], e = embed(src);
+      document.getElementById('vstage').innerHTML = e
+        ? `<iframe src="${e}" allow="autoplay; fullscreen" allowfullscreen style="width:100%;aspect-ratio:16/9;border:0;display:block"></iframe>`
+        : `<video id="vp" src="${fix(src)}" controls autoplay playsinline></video>`;
+      document.querySelectorAll('.vitem').forEach((b, k) => b.classList.toggle('on', k === i));
+      const v = document.getElementById('vp');
+      if (v) v.onended = () => { if (vi < vids.length - 1) playVid(vi + 1); };
+    }
+    function openVideo(list) {
+      mode = 'video'; vids = list;
+      if (!list.length) {
+        player.innerHTML = '<div class="ph">Add your video links to this card\'s <code>data-videos</code> attribute.</div>';
+      } else {
+        player.innerHTML = '<div id="vstage"></div>' + (list.length > 1
+          ? '<div class="vlist">' + list.map((_, i) => `<button class="vitem" data-v="${i}">▶ Video ${i + 1}</button>`).join('') + '</div>' : '');
+        playVid(0);
+      }
+      modal.classList.add('open');
+    }
+
+    // Image carousel
+    function renderSlide() {
+      const n = imgs.length;
+      player.innerHTML = `<div class="car"><div class="slide"><span>Image ${idx + 1}<br><small>Image not found — check the path in data-images</small></span><img src="${fix(imgs[idx])}" alt="${title} ${idx + 1}" onerror="this.remove()"></div>
+    ${n > 1 ? '<button class="nav prev" aria-label="Previous">‹</button><button class="nav next" aria-label="Next">›</button>' : ''}</div>
+    <div class="cap"><b>${title}</b><div class="dots">${imgs.map((_, i) => `<i class="${i === idx ? 'on' : ''}" data-i="${i}"></i>`).join('')}</div><span>${idx + 1} / ${n}</span></div>`;
+    }
+    function go(d) { idx = (idx + d + imgs.length) % imgs.length; renderSlide(); }
+    function openGallery(list, t) { imgs = list; idx = 0; title = t; mode = 'gallery'; renderSlide(); modal.classList.add('open'); }
+
+    // Card clicks
+    cards.forEach(c => c.onclick = () => {
+      const split = s => (s || '').split(',').map(x => x.trim()).filter(Boolean);
+      if (c.dataset.c === 'video') return openVideo(split(c.dataset.videos || c.dataset.video));
+      const list = split(c.dataset.images);
+      if (list.length) openGallery(list, c.querySelector('h3').textContent);
+    });
+
+    // Popup controls
+    player.addEventListener('click', e => {
+      const vb = e.target.closest('.vitem'); if (vb) return playVid(+vb.dataset.v);
+      if (e.target.closest('.prev')) go(-1);
+      else if (e.target.closest('.next')) go(1);
+      else if (e.target.dataset.i) { idx = +e.target.dataset.i; renderSlide(); }
+    });
+    let sx = 0;
+    player.addEventListener('touchstart', e => sx = e.touches[0].clientX, { passive: true });
+    player.addEventListener('touchend', e => {
+      if (mode !== 'gallery') return;
+      const d = e.changedTouches[0].clientX - sx;
+      if (Math.abs(d) > 50) go(d < 0 ? 1 : -1);
+    });
+    document.getElementById('close').onclick = closeModal;
+    modal.onclick = e => { if (e.target === modal) closeModal(); };
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+      if (mode === 'gallery') { if (e.key === 'ArrowRight') go(1); if (e.key === 'ArrowLeft') go(-1); }
+    });
+  </script>
+</body>
+
+</html>
